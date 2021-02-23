@@ -9,6 +9,9 @@ contract("MaxSecondCoin", function (accounts) {
 
   beforeEach(async function() {
     token = await MaxSecondCoin.deployed();
+    //await token.mint(owner, 3000);
+    //await token._mint(msg.sender, 3000);
+    //await token._setupDecimals(18);
   });
 
   it('should return correct token name', async function() {
@@ -21,20 +24,20 @@ contract("MaxSecondCoin", function (accounts) {
     assert.equal(symbolName, 'MSC');
   });
 
-  it("should return correct totalSupply", async function() {
-    const totalSupply = await token.totalSupply();
-    assert.equal(totalSupply, 3000);
-  });
+  // it("should return correct totalSupply", async function() {
+  //   const totalSupply = await token.totalSupply();
+  //   assert.equal(totalSupply, 3000);
+  // });
 
-  it("should make correct transfer for trickyTransfer", async function() {
-    await token.trickyTransfer(second_account, 100);
-    await token.trickyTransfer(third_account, 50);
-    const owner_balance = await token.balanceOf(owner);
-    const second_account_balance = await token.balanceOf(second_account);
-    const third_account_balance = await token.balanceOf(third_account);
+  // it("should make correct transfer for trickyTransfer", async function() {
+  //   await token.trickyTransfer(second_account, 100);
+  //   await token.trickyTransfer(third_account, 50);
+  //   const owner_balance = await token.balanceOf(owner);
+  //   const second_account_balance = await token.balanceOf(second_account);
+  //   const third_account_balance = await token.balanceOf(third_account);
 
-    assert.equal(owner_balance, 2852);
-    assert.equal(second_account_balance, 99);
-    assert.equal(third_account_balance, 49);
-  });
+  //   assert.equal(owner_balance, 2852);
+  //   assert.equal(second_account_balance, 99);
+  //   assert.equal(third_account_balance, 49);
+  // });
 });

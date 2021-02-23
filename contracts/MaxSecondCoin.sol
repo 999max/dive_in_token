@@ -5,8 +5,8 @@ import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
 contract MaxSecondCoin is ERC20 {
   constructor() public ERC20("MaxSecondCoin", "MSC") {
-    _mint(msg.sender, 3000);
-    _setupDecimals(10);
+    // _mint(msg.sender, 3000);
+    // _setupDecimals(18);
   }
 
   /**
